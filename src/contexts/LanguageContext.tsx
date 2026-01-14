@@ -10,32 +10,58 @@ interface LanguageContextType {
 
 const translations = {
   en: {
-    'welcome.title': 'Welcome to TPC Minimal',
-    'welcome.subtitle': 'This is a minimal React TypeScript project with Vite and Tailwind CSS.',
-    'features.title': 'Features',
-    'features.react': 'React 19 with TypeScript',
-    'features.vite': 'Vite for fast development',
-    'features.tailwind': 'Tailwind CSS for styling',
-    'features.router': 'React Router for navigation',
-    'features.eslint': 'ESLint for code quality',
-    'language.switch': 'Language',
-    'navigation.home': 'Home',
-    'navigation.about': 'About',
-    'navigation.contact': 'Contact'
+    // Navigation
+    'public.home.title': 'Trader Professional Community',
+    'public.home.subtitle': 'A global hub where professional traders connect, learn, and grow—built on transparency and real results.',
+    'public.home.disclaimer': 'Educational community. Not financial advice. Trading involves risk.',
+    'public.home.ctaPrimary': 'Join Community',
+    'public.home.ctaSecondary': 'Explore Ecosystem',
+
+    // Cards
+    'public.home.cards.0.title': 'Education & Playbooks',
+    'public.home.cards.0.desc': 'Step-by-step learning, market insights, and practical trading frameworks.',
+    'public.home.cards.1.title': 'Community & Networking',
+    'public.home.cards.1.desc': 'Connect with professional traders worldwide and collaborate.',
+    'public.home.cards.2.title': 'Trust & Transparency',
+    'public.home.cards.2.desc': 'Open activity logs, verified updates, and accountability.',
+
+    // Steps
+    'public.home.steps.0.title': 'Join',
+    'public.home.steps.0.desc': 'Enter the community and choose your path.',
+    'public.home.steps.1.title': 'Verify',
+    'public.home.steps.1.desc': 'Unlock access based on verification rules.',
+    'public.home.steps.2.title': 'Participate',
+    'public.home.steps.2.desc': 'Learn, contribute, and grow with the network.',
+
+    // Footer
+    'public.footer.rights': '© 2025 TPC - Trader Professional Community. All rights reserved.'
   },
   id: {
-    'welcome.title': 'Selamat Datang di TPC Minimal',
-    'welcome.subtitle': 'Ini adalah project React TypeScript minimal dengan Vite dan Tailwind CSS.',
-    'features.title': 'Fitur',
-    'features.react': 'React 19 dengan TypeScript',
-    'features.vite': 'Vite untuk development cepat',
-    'features.tailwind': 'Tailwind CSS untuk styling',
-    'features.router': 'React Router untuk navigasi',
-    'features.eslint': 'ESLint untuk kualitas kode',
-    'language.switch': 'Bahasa',
-    'navigation.home': 'Beranda',
-    'navigation.about': 'Tentang',
-    'navigation.contact': 'Kontak'
+    // Navigation
+    'public.home.title': 'Trader Professional Community',
+    'public.home.subtitle': 'Wadah global tempat trader profesional berkumpul, belajar, dan berkembang—berbasis transparansi dan hasil nyata.',
+    'public.home.disclaimer': 'Komunitas edukasi. Bukan saran investasi. Trading memiliki risiko.',
+    'public.home.ctaPrimary': 'Gabung Komunitas',
+    'public.home.ctaSecondary': 'Jelajahi Ekosistem',
+
+    // Cards
+    'public.home.cards.0.title': 'Edukasi & Playbook',
+    'public.home.cards.0.desc': 'Belajar bertahap, insight market, dan framework trading praktis.',
+    'public.home.cards.1.title': 'Komunitas & Networking',
+    'public.home.cards.1.desc': 'Terhubung dengan trader profesional dunia dan berkolaborasi.',
+    'public.home.cards.2.title': 'Trust & Transparansi',
+    'public.home.cards.2.desc': 'Log aktivitas terbuka, update terverifikasi, dan akuntabilitas.',
+
+    // Steps
+    'public.home.steps.0.title': 'Gabung',
+    'public.home.steps.0.desc': 'Masuk komunitas dan pilih jalurmu.',
+    'public.home.steps.1.title': 'Verifikasi',
+    'public.home.steps.1.desc': 'Buka akses sesuai aturan verifikasi.',
+    'public.home.steps.2.title': 'Berpartisipasi',
+    'public.home.steps.2.desc': 'Belajar, berkontribusi, dan tumbuh bersama.',
+
+    // Footer
+    'public.footer.rights': '© 2025 TPC - Trader Professional Community. Semua hak dilindungi.'
   }
 }
 

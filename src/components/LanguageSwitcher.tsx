@@ -1,21 +1,44 @@
 import { useLanguage } from '../contexts/LanguageContext'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 export default function LanguageSwitcher() {
-  const { language, setLanguage } = useLanguage()
+  const { language } = useLanguage()
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  const switchLanguage = (newLang: 'en' | 'id') => {
+    if (newLang === language) return
+    
+    // Extract current path and replace language
+    const pathParts = location.pathname.split('/')
+    pathParts[1] = newLang
+    const newPath = pathParts.join('/')
+    
+    navigate(newPath, { replace: true })
+  }
 
   return (
-    <div className="flex items-center space-x-2">
-      <span className="text-sm font-medium text-gray-600">
-        {language === 'en' ? 'Language' : 'Bahasa'}:
-      </span>
-      <select
-        value={language}
-        onChange={(e) => setLanguage(e.target.value as 'en' | 'id')}
-        className="px-3 py-1 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+    <div className="flex items-center space-x-1 bg-gray-800 rounded-lg p-1">
+      <button
+        onClick={() => switchLanguage('en')}
+        className={`px-3 py-1 text-sm font-medium rounded transition-colors ${
+          language === 'en'
+            ? 'bg-blue-600 text-white'
+            : 'text-gray-300 hover:text-white hover:bg-gray-700'
+        }`}
       >
-        <option value="en">English</option>
-        <option value="id">Indonesia</option>
-      </select>
+        EN
+      </button>
+      <button
+        onClick={() => switchLanguage('id')}
+        className={`px-3 py-1 text-sm font-medium rounded transition-colors ${
+          language === 'id'
+            ? 'bg-blue-600 text-white'
+            : 'text-gray-300 hover:text-white hover:bg-gray-700'
+        }`}
+      >
+        ID
+      </button>
     </div>
   )
 }
