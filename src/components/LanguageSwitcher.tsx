@@ -1,13 +1,16 @@
-import { useLanguage } from '../contexts/LanguageContext'
 import { useNavigate, useLocation } from 'react-router-dom'
+import { type Language } from '../i18n'
 
-export default function LanguageSwitcher() {
-  const { language } = useLanguage()
+interface LanguageSwitcherProps {
+  currentLang: Language
+}
+
+export default function LanguageSwitcher({ currentLang }: LanguageSwitcherProps) {
   const navigate = useNavigate()
   const location = useLocation()
 
-  const switchLanguage = (newLang: 'en' | 'id') => {
-    if (newLang === language) return
+  const switchLanguage = (newLang: Language) => {
+    if (newLang === currentLang) return
     
     // Extract current path and replace language
     const pathParts = location.pathname.split('/')
@@ -18,13 +21,13 @@ export default function LanguageSwitcher() {
   }
 
   return (
-    <div className="flex items-center space-x-1 bg-gray-800 rounded-lg p-1">
+    <div className="flex items-center space-x-1 bg-gray-700 rounded-lg p-1">
       <button
         onClick={() => switchLanguage('en')}
         className={`px-3 py-1 text-sm font-medium rounded transition-colors ${
-          language === 'en'
+          currentLang === 'en'
             ? 'bg-blue-600 text-white'
-            : 'text-gray-300 hover:text-white hover:bg-gray-700'
+            : 'text-gray-300 hover:text-white hover:bg-gray-600'
         }`}
       >
         EN
@@ -32,9 +35,9 @@ export default function LanguageSwitcher() {
       <button
         onClick={() => switchLanguage('id')}
         className={`px-3 py-1 text-sm font-medium rounded transition-colors ${
-          language === 'id'
+          currentLang === 'id'
             ? 'bg-blue-600 text-white'
-            : 'text-gray-300 hover:text-white hover:bg-gray-700'
+            : 'text-gray-300 hover:text-white hover:bg-gray-600'
         }`}
       >
         ID
