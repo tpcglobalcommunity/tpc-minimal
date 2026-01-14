@@ -1,10 +1,10 @@
 import { Outlet } from 'react-router-dom'
-import { type Language } from '../i18n'
+import { type Lang } from '../i18n'
 import LanguageSwitcher from '../components/LanguageSwitcher'
 
 interface PublicLayoutProps {
-  lang: Language
-  t: (key: keyof import('../i18n').Translations) => string
+  lang: Lang
+  t: (key: string, vars?: Record<string, string | number>) => string
   children?: React.ReactNode
 }
 

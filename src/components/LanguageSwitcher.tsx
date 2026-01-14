@@ -1,15 +1,15 @@
 import { useNavigate, useLocation } from 'react-router-dom'
-import { type Language } from '../i18n'
+import { type Lang } from '../i18n'
 
 interface LanguageSwitcherProps {
-  currentLang: Language
+  currentLang: Lang
 }
 
 export default function LanguageSwitcher({ currentLang }: LanguageSwitcherProps) {
   const navigate = useNavigate()
   const location = useLocation()
 
-  const switchLanguage = (newLang: Language) => {
+  const switchLanguage = (newLang: Lang) => {
     if (newLang === currentLang) return
     
     // Extract current path and replace language

@@ -1,5 +1,5 @@
 interface HomePageProps {
-  t: (key: keyof import('../../i18n').Translations) => string
+  t: (key: string, vars?: Record<string, string | number>) => string
 }
 
 export default function HomePage({ t }: HomePageProps) {
@@ -121,7 +121,7 @@ export default function HomePage({ t }: HomePageProps) {
         <footer className="py-8 px-4 bg-gray-800/50 backdrop-blur-sm border-t border-gray-700">
           <div className="container mx-auto text-center">
             <p className="text-gray-400 text-sm">
-              {t('public.footer.rights')}
+              {t('public.footer.rights', { year: new Date().getFullYear() })}
             </p>
           </div>
         </footer>
