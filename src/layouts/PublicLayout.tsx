@@ -3,14 +3,17 @@ import LanguageSwitcher from "../components/LanguageSwitcher";
 
 export default function PublicLayout() {
   return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-100">
-      <header className="sticky top-0 z-20 border-b border-white/10 bg-neutral-950/70 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-          <div className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-xl bg-white/10 ring-1 ring-white/10" />
+    <div className="min-h-screen bg-[#0B0E11] text-[#EAECEF]">
+      {/* Top App Bar */}
+      <header className="sticky top-0 z-30 border-b border-white/10 bg-[#0B0E11]/80 backdrop-blur">
+        <div className="mx-auto flex max-w-[1200px] items-center justify-between px-4 py-3">
+          <div className="flex items-center gap-3">
+            <div className="grid h-10 w-10 place-items-center rounded-2xl bg-[#12161C] ring-1 ring-white/10">
+              <div className="h-2.5 w-2.5 rounded-full bg-[#F0B90B]" />
+            </div>
             <div className="leading-tight">
               <div className="text-sm font-semibold tracking-wide">TPC</div>
-              <div className="text-[11px] text-white/60">Global Community</div>
+              <div className="text-[11px] text-white/60">Trader Professional Community</div>
             </div>
           </div>
 
@@ -18,7 +21,7 @@ export default function PublicLayout() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-6xl px-4 py-10">
+      <main className="mx-auto max-w-[1200px] px-4 py-8 sm:py-10">
         <Outlet />
       </main>
     </div>
