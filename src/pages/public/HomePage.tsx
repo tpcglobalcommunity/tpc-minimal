@@ -1,5 +1,36 @@
 import { useI18n } from "../../i18n";
 
+const IconBook = (
+  <svg width="20" height="20" viewBox="0 0 24 24" className="text-white/85">
+    <path
+      fill="currentColor"
+      d="M6 4h11a2 2 0 0 1 2 2v13a1 1 0 0 1-1.447.894L12 17.118l-5.553 2.776A1 1 0 0 1 1 5 19V6a2 2 0 0 1 1-2zm0 2v11.382l5.105-2.552a1 1 0 0 1 .894 0L17 17.382V6H6z"
+    />
+  </svg>
+);
+
+const IconGlobe = (
+  <svg width="20" height="20" viewBox="0 0 24 24" className="text-white/85">
+    <path
+      fill="currentColor"
+      d="M12 2a10 10 0 1 1 0 20a10 10 0 0 1 1 0-20zm7.93 9h-3.03c-.2-1.7-.66-3.36-1.34-4.74A8.02 8.02 0 0 1 19.93 11zM12 4c-.93 0-2.25 1.78-2.86 5h5.72C14.25 5.78 12.93 4 12 4zM4.07 11H7.1c.2-1.7.66-3.36 1.34-4.74A8.02 8.02 0 0 0 4.07 11zm0 2A8.02 8.02 0 0 0 8.44 18c-.68-1.38-1.14-3.04-1.34-4.74H4.07zM12 20c.93 0 2.25-1.78 2.86-5H9.14c.61 3.22 1.93 5 2.86 5zm3.56-2c.68-1.38 1.14-3.04 1.34-4.74h3.03A8.02 8.02 0 0 1 15.56 18z"
+    />
+  </svg>
+);
+
+const IconShield = (
+  <svg width="20" height="20" viewBox="0 0 24 24" className="text-white/85">
+    <path
+      fill="currentColor"
+      d="M12 2l7 4v6c0 5-3.2 9.6-7 10c-3.8-.4-7-5-7-10V6l7-4zm0 2.2L7 6v6c0 3.9 2.3 7.7 5 8c2.7-.3 5-4.1 5-8V6l-5-1.8z"
+    />
+    <path
+      fill="currentColor"
+      d="M10.6 12.8l-1.4-1.4l-1.4 1.4l2.8 2.8l5.5l-1.4-1.4z"
+    />
+  </svg>
+);
+
 function PrimaryButton({ children }: { children: React.ReactNode }) {
   return (
     <button className="inline-flex w-full items-center justify-center rounded-2xl bg-[#F0B90B] px-5 py-3 text-sm font-semibold text-[#0B0E11] transition hover:brightness-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F0B90B]/60 sm:w-auto">
@@ -138,17 +169,17 @@ export default function HomePage() {
           <FeatureCard
             title={t("public.home.cards.0.title")}
             desc={t("public.home.cards.0.desc")}
-            icon={<span className="text-lg">📚</span>}
+            icon={IconBook}
           />
           <FeatureCard
             title={t("public.home.cards.1.title")}
             desc={t("public.home.cards.1.desc")}
-            icon={<span className="text-lg">🌐</span>}
+            icon={IconGlobe}
           />
           <FeatureCard
             title={t("public.home.cards.2.title")}
             desc={t("public.home.cards.2.desc")}
-            icon={<span className="text-lg">🛡️</span>}
+            icon={IconShield}
           />
         </div>
       </section>
