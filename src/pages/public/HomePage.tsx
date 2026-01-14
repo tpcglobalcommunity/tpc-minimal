@@ -53,7 +53,6 @@ export default function HomePage() {
     { title: t("public.home.values.0.title"), desc: t("public.home.values.0.desc"), icon: <span className="text-lg">⏳</span> },
     { title: t("public.home.values.1.title"), desc: t("public.home.values.1.desc"), icon: <span className="text-lg">🎯</span> },
     { title: t("public.home.values.2.title"), desc: t("public.home.values.2.desc"), icon: <span className="text-lg">📈</span> },
-    { title: t("public.home.values.3.title"), desc: t("public.home.values.3.desc"), icon: <span className="text-lg">🕊</span> },
   ];
 
   const steps = [
@@ -90,52 +89,46 @@ export default function HomePage() {
             {t("public.home.subtitle")}
           </p>
 
-          <p className="mt-3 text-sm text-white/60">
-            {t("public.home.disclaimer")}
-          </p>
+          <p className="mt-3 text-sm text-white/60">{t("public.home.disclaimer")}</p>
 
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
             <Button variant="primary">{t("public.home.ctaPrimary")}</Button>
             <Button variant="secondary">{t("public.home.ctaSecondary")}</Button>
           </div>
         </div>
       </section>
 
-      {/* WHY TPC */}
-      <section className="mt-10 rounded-3xl border border-white/10 bg-[#12161C] p-7 sm:p-10">
-        <div className="max-w-3xl">
-          <h2 className="text-2xl font-semibold text-white">{t("public.home.why.title")}</h2>
-          <p className="mt-4 text-base leading-relaxed text-white/75">
+      {/* WHY + CARDS */}
+      <section className="mt-10 grid gap-4 lg:grid-cols-3">
+        <div className="rounded-3xl border border-white/10 bg-[#12161C] p-7">
+          <div className="text-xs font-semibold tracking-wider text-white/50">WHY TPC</div>
+          <div className="mt-3 text-2xl font-semibold text-white">Professional, not hype</div>
+          <p className="mt-3 text-sm leading-relaxed text-white/70">
             {t("public.home.why.content")}
           </p>
         </div>
-      </section>
 
-      {/* CORE VALUES */}
-      <section className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {cards.map((card) => (
-          <Card key={card.title} title={card.title} desc={card.desc} icon={card.icon} />
-        ))}
-      </section>
-
-      {/* HOW IT WORKS */}
-      <section className="mt-10 rounded-3xl border border-white/10 bg-[#12161C] p-7 sm:p-10">
-        <div className="mb-6">
-          <div className="text-sm font-semibold text-white/80">How It Works</div>
-        </div>
-        <div className="grid gap-4 lg:grid-cols-3">
-          {steps.map((step) => (
-            <Step key={step.n} n={step.n} title={step.title} desc={step.desc} />
+        <div className="grid gap-4 lg:col-span-2 sm:grid-cols-2">
+          {cards.map((c) => (
+            <Card key={c.title} title={c.title} desc={c.desc} icon={c.icon} />
           ))}
         </div>
       </section>
 
-      {/* POSITIONING */}
+      {/* HOW IT WORKS */}
       <section className="mt-10 rounded-3xl border border-white/10 bg-[#12161C] p-7 sm:p-10">
-        <div className="max-w-3xl">
-          <p className="text-base leading-relaxed text-white/75">
-            {t("public.home.positioning")}
-          </p>
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <div className="text-xs font-semibold tracking-wider text-white/50">HOW IT WORKS</div>
+            <div className="mt-2 text-2xl font-semibold text-white">Simple steps, strong habits</div>
+          </div>
+          <div className="text-sm text-white/60">No promises. Just process.</div>
+        </div>
+
+        <div className="mt-6 grid gap-4 lg:grid-cols-3">
+          {steps.map((s) => (
+            <Step key={s.n} n={s.n} title={s.title} desc={s.desc} />
+          ))}
         </div>
       </section>
 
