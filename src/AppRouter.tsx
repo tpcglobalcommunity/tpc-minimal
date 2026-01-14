@@ -1,14 +1,20 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
-import LangLayout from './layouts/LangLayout'
+import { Navigate, Route, Routes } from "react-router-dom";
+import LangLayout from "./layouts/LangLayout";
+import PublicLayout from "./layouts/PublicLayout";
+import HomePage from "./pages/public/HomePage";
 
 export default function AppRouter() {
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/en/public" replace />} />
-      <Route path="/:lang/public" element={<LangLayout />} />
-      <Route path="/en" element={<Navigate to="/en/public" replace />} />
-      <Route path="/id" element={<Navigate to="/id/public" replace />} />
+
+      <Route path="/:lang" element={<LangLayout />}>
+        <Route path="public" element={<PublicLayout />}>
+          <Route index element={<HomePage />} />
+        </Route>
+      </Route>
+
       <Route path="*" element={<Navigate to="/en/public" replace />} />
     </Routes>
-  )
+  );
 }

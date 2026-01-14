@@ -1,131 +1,163 @@
-interface HomePageProps {
-  t: (key: string, vars?: Record<string, string | number>) => string
-}
+import { useI18n } from "../../i18n";
 
-export default function HomePage({ t }: HomePageProps) {
+export default function HomePage() {
+  const { t } = useI18n();
+  const year = new Date().getFullYear();
+
+  const values = [
+    { 
+      icon: "⏳", 
+      title: t("public.home.values.0.title"), 
+      desc: t("public.home.values.0.desc") 
+    },
+    { 
+      icon: "🎯", 
+      title: t("public.home.values.1.title"), 
+      desc: t("public.home.values.1.desc") 
+    },
+    { 
+      icon: "📈", 
+      title: t("public.home.values.2.title"), 
+      desc: t("public.home.values.2.desc") 
+    },
+    { 
+      icon: "🕊", 
+      title: t("public.home.values.3.title"), 
+      desc: t("public.home.values.3.desc") 
+    },
+  ];
+
+  const steps = [
+    { 
+      n: "01", 
+      title: t("public.home.steps.0.title"), 
+      desc: t("public.home.steps.0.desc") 
+    },
+    { 
+      n: "02", 
+      title: t("public.home.steps.1.title"), 
+      desc: t("public.home.steps.1.desc") 
+    },
+    { 
+      n: "03", 
+      title: t("public.home.steps.2.title"), 
+      desc: t("public.home.steps.2.desc") 
+    },
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
-      {/* Background Grid Pattern */}
-      <div className="fixed inset-0 bg-grid-pattern opacity-5"></div>
-      
-      <div className="relative z-10">
-        {/* Hero Section */}
-        <section className="relative py-20 px-4 text-center">
-          <div className="container mx-auto max-w-4xl">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              {t('public.home.title')}
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
-              {t('public.home.subtitle')}
-            </p>
-            <p className="text-sm text-gray-400 mb-8 italic">
-              {t('public.home.disclaimer')}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="#"
-                className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors"
+    <div className="min-h-screen bg-[#0B0E11] text-white">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden py-20 px-4">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0B0E11] via-[#12161C] to-[#0B0E11]" />
+        <div className="relative max-w-6xl mx-auto text-center">
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-[#F0B90B] to-[#F59E0B] bg-clip-text text-transparent">
+            {t("public.home.title")}
+          </h1>
+          <div className="text-2xl md:text-3xl font-bold text-[#F0B90B] mb-6">
+            {t("public.home.tagline")}
+          </div>
+          <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
+            {t("public.home.subtitle")}
+          </p>
+          <p className="text-sm text-gray-500 mb-8 max-w-2xl mx-auto">
+            {t("public.home.disclaimer")}
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="#"
+              className="inline-flex items-center justify-center rounded-2xl bg-[#F0B90B] px-8 py-4 text-base font-semibold text-[#0B0E11] hover:bg-[#F59E0B] transition-colors"
+            >
+              {t("public.home.ctaPrimary")}
+            </a>
+            <a
+              href="#"
+              className="inline-flex items-center justify-center rounded-2xl border border-gray-600 bg-transparent px-8 py-4 text-base font-semibold text-white hover:bg-gray-800 transition-colors"
+            >
+              {t("public.home.ctaSecondary")}
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Why TPC Section */}
+      <section className="py-20 px-4 bg-[#12161C]">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-[#F0B90B]">
+            {t("public.home.why.title")}
+          </h2>
+          <p className="text-lg text-gray-300 text-center max-w-3xl mx-auto leading-relaxed">
+            {t("public.home.why.content")}
+          </p>
+        </div>
+      </section>
+
+      {/* Core Values Section */}
+      <section className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {values.map((value) => (
+              <div
+                key={value.title}
+                className="rounded-2xl border border-gray-700 bg-[#12161C] p-6 hover:border-[#F0B90B] transition-colors"
               >
-                {t('public.home.ctaPrimary')}
-              </a>
-              <a
-                href="#"
-                className="px-8 py-3 border border-gray-600 hover:border-gray-500 text-white font-semibold rounded-lg transition-colors"
-              >
-                {t('public.home.ctaSecondary')}
-              </a>
-            </div>
+                <div className="text-4xl mb-4">{value.icon}</div>
+                <h3 className="text-xl font-bold mb-3 text-[#F0B90B]">
+                  {value.title}
+                </h3>
+                <p className="text-gray-400 leading-relaxed">
+                  {value.desc}
+                </p>
+              </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Cards Section */}
-        <section className="py-16 px-4 bg-gray-800/50 backdrop-blur-sm">
-          <div className="container mx-auto max-w-6xl">
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-gray-900/80 rounded-xl p-8 border border-gray-700 hover:border-blue-500 transition-colors backdrop-blur-sm">
-                <div className="text-3xl mb-4">📚</div>
-                <h3 className="text-xl font-semibold mb-4 text-blue-400">
-                  {t('public.home.cards.0.title')}
+      {/* How It Works Section */}
+      <section className="py-20 px-4 bg-[#12161C]">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-[#F0B90B]">
+            How It Works
+          </h2>
+          <div className="grid gap-8 md:grid-cols-3">
+            {steps.map((step) => (
+              <div key={step.n} className="text-center">
+                <div className="w-16 h-16 bg-[#F0B90B] rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold text-[#0B0E11]">
+                  {step.n}
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-[#F0B90B]">
+                  {step.title}
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
-                  {t('public.home.cards.0.desc')}
+                  {step.desc}
                 </p>
               </div>
-              <div className="bg-gray-900/80 rounded-xl p-8 border border-gray-700 hover:border-blue-500 transition-colors backdrop-blur-sm">
-                <div className="text-3xl mb-4">🤝</div>
-                <h3 className="text-xl font-semibold mb-4 text-blue-400">
-                  {t('public.home.cards.1.title')}
-                </h3>
-                <p className="text-gray-300 leading-relaxed">
-                  {t('public.home.cards.1.desc')}
-                </p>
-              </div>
-              <div className="bg-gray-900/80 rounded-xl p-8 border border-gray-700 hover:border-blue-500 transition-colors backdrop-blur-sm">
-                <div className="text-3xl mb-4">🛡️</div>
-                <h3 className="text-xl font-semibold mb-4 text-blue-400">
-                  {t('public.home.cards.2.title')}
-                </h3>
-                <p className="text-gray-300 leading-relaxed">
-                  {t('public.home.cards.2.desc')}
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* How It Works Section */}
-        <section className="py-16 px-4">
-          <div className="container mx-auto max-w-4xl">
-            <h2 className="text-3xl font-bold text-center mb-12 text-blue-400">
-              How It Works
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold">1</span>
-                </div>
-                <h3 className="text-lg font-semibold mb-2 text-blue-400">
-                  {t('public.home.steps.0.title')}
-                </h3>
-                <p className="text-gray-300">
-                  {t('public.home.steps.0.desc')}
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold">2</span>
-                </div>
-                <h3 className="text-lg font-semibold mb-2 text-blue-400">
-                  {t('public.home.steps.1.title')}
-                </h3>
-                <p className="text-gray-300">
-                  {t('public.home.steps.1.desc')}
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold">3</span>
-                </div>
-                <h3 className="text-lg font-semibold mb-2 text-blue-400">
-                  {t('public.home.steps.2.title')}
-                </h3>
-                <p className="text-gray-300">
-                  {t('public.home.steps.2.desc')}
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Footer */}
-        <footer className="py-8 px-4 bg-gray-800/50 backdrop-blur-sm border-t border-gray-700">
-          <div className="container mx-auto text-center">
-            <p className="text-gray-400 text-sm">
-              {t('public.footer.rights', { year: new Date().getFullYear() })}
+      {/* Positioning Statement */}
+      <section className="py-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="rounded-2xl border border-gray-700 bg-[#12161C] p-8">
+            <p className="text-lg text-gray-300 text-center leading-relaxed">
+              {t("public.home.positioning")}
             </p>
           </div>
-        </footer>
-      </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-8 px-4 border-t border-gray-800 bg-[#0B0E11]">
+        <div className="max-w-6xl mx-auto text-center">
+          <p className="text-sm text-gray-500">
+            {t("public.footer.rights", { year })}
+          </p>
+        </div>
+      </footer>
     </div>
-  )
+  );
 }

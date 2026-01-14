@@ -1,42 +1,15 @@
-import { Outlet, useParams, Navigate } from 'react-router-dom'
-import { type Lang, I18nProvider, useI18n } from '../i18n'
-import PublicLayout from './PublicLayout'
-import HomePage from '../pages/public/HomePage'
+import { Navigate, Outlet, useParams } from "react-router-dom";
+import { I18nProvider, type Lang } from "../i18n";
 
-interface LangLayoutProps {
-  children?: React.ReactNode
-}
+export default function LangLayout() {
+  const { lang } = useParams<{ lang: string }>();
+  const valid = lang === "en" || lang === "id";
 
-function LangLayoutContent({ children }: LangLayoutProps) {
-  const { lang } = useParams<{ lang: Lang }>()
-  
-  // Validate language parameter
-  if (!lang || (lang !== 'en' && lang !== 'id')) {
-    return <Navigate to="/en/public" replace />
-  }
-  
-  const { t } = useI18n()
+  if (!valid) return <Navigate to="/en/public" replace />;
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
-      <PublicLayout lang={lang} t={t}>
-        {children || <Outlet /> || <HomePage t={t} />}
-      </PublicLayout>
-    </div>
-  )
-}
-
-export default function LangLayout({ children }: LangLayoutProps) {
-  const { lang } = useParams<{ lang: Lang }>()
-  
-  // Validate language parameter
-  if (!lang || (lang !== 'en' && lang !== 'id')) {
-    return <Navigate to="/en/public" replace />
-  }
-
-  return (
-    <I18nProvider lang={lang}>
-      <LangLayoutContent>{children}</LangLayoutContent>
+    <I18nProvider lang={lang as Lang}>
+      <Outlet />
     </I18nProvider>
-  )
+  );
 }
