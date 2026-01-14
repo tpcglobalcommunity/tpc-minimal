@@ -14,6 +14,8 @@ export default function AppRouter() {
           </PublicLayout>
         </LangLayout>
       } />
+      <Route path="/en" element={<Navigate to="/en/public" replace />} />
+      <Route path="/id" element={<Navigate to="/id/public" replace />} />
     </Routes>
   )
 }
