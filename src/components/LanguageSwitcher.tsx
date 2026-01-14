@@ -12,24 +12,32 @@ export default function LanguageSwitcher() {
   const nav = useNavigate();
   const loc = useLocation();
   const parts = loc.pathname.split("/").filter(Boolean);
-  const current = parts[0] === "id" ? "id" : "en";
+  const current: "en" | "id" = parts[0] === "id" ? "id" : "en";
 
-  const btn =
+  const base =
     "rounded-xl px-3 py-2 text-xs font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F0B90B]/60";
 
   return (
     <div className="flex items-center gap-1 rounded-2xl border border-white/10 bg-[#12161C] p-1">
       <button
-        className={`${btn} ${current === "en" ? "bg-white/10 text-white" : "text-white/70 hover:bg-white/5"}`}
-        onClick={() => nav(swapLang(loc.pathname, "en"), { replace: true })}
         type="button"
+        className={`${base} ${
+          current === "en"
+            ? "bg-white/10 text-white"
+            : "text-white/70 hover:bg-white/5"
+        }`}
+        onClick={() => nav(swapLang(loc.pathname, "en"), { replace: true })}
       >
         EN
       </button>
       <button
-        className={`${btn} ${current === "id" ? "bg-white/10 text-white" : "text-white/70 hover:bg-white/5"}`}
-        onClick={() => nav(swapLang(loc.pathname, "id"), { replace: true })}
         type="button"
+        className={`${base} ${
+          current === "id"
+            ? "bg-white/10 text-white"
+            : "text-white/70 hover:bg-white/5"
+        }`}
+        onClick={() => nav(swapLang(loc.pathname, "id"), { replace: true })}
       >
         ID
       </button>
