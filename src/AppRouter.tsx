@@ -6,8 +6,6 @@ import HomePage from "./pages/public/HomePage";
 export default function AppRouter() {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/en/public" replace />} />
-
       <Route path="/:lang" element={<LangLayout />}>
         <Route path="public" element={<PublicLayout />}>
           <Route index element={<HomePage />} />
